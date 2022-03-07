@@ -5,6 +5,8 @@ import http from "http";
 import { typeDefs } from "./schema.js";
 
 import { Query } from "./resolvers/Query.js";
+import { Mutation } from "./resolvers/Mutation.js";
+
 import { Product } from "./resolvers/Product.js";
 import { Category } from "./resolvers/Category.js";
 
@@ -34,6 +36,7 @@ async function startApolloServer(typeDefs, resolvers, context) {
 
 const resolvers = {
   Query,
+  Mutation,
   Product,
   Category
 };

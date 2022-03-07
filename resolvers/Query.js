@@ -1,27 +1,27 @@
 export const Query = {
-  products: (parent, {filter}, { products, reviews }) => {
+  products: (parent, { filter }, { products, reviews }) => {
     let filteredProducts = products;
 
     if (filter) {
-      const {onSale, avgRating } = filter;
+      const { onSale, avgRating } = filter;
 
       if (onSale === true) {
-        filteredProducts = filteredProducts.filter(product => {
-          return product.onSale
-        })
+        filteredProducts = filteredProducts.filter((product) => {
+          return product.onSale;
+        });
       }
-      if([1,2,3,4,5].includes(avgRating)) {
-        filteredProducts = filteredProducts.filter(product => {
+      if ([1, 2, 3, 4, 5].includes(avgRating)) {
+        filteredProducts = filteredProducts.filter((product) => {
           let sumRating = 0;
           let numberOfReviews = 0;
-          reviews.forEach(review => {
+          reviews.forEach((review) => {
             if (review.productId === product.id) {
-              sumRating += review.rating
-              numberOfReviews++
+              sumRating += review.rating;
+              numberOfReviews++;
             }
           });
-          return sumRating / numberOfReviews >= avgRating
-        })
+          return sumRating / numberOfReviews >= avgRating;
+        });
       }
     }
 
@@ -30,7 +30,7 @@ export const Query = {
   product: (parent, args, { products }) => {
     return products.find((product) => product.id === args.id);
   },
-  categories: () => {
+  categories: (parent, args, { categories }) => {
     return categories;
   },
   category: (parent, args, { categories }) => {
