@@ -6,7 +6,7 @@ export const products = [
     quantity: 230,
     price: 42.44,
     image: "img-1",
-    onSale: false,
+    onSale: true,
     categoryId: "c01b1ff4-f894-4ef2-b27a-22aacc2fca70",
   },
   {
